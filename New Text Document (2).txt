@@ -1,0 +1,33 @@
+class Profile extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={
+      height: 100
+    };
+  }
+  render(){
+    var {name, age, sex, pic} = this.props;
+    var {height} = this.state;
+    return(
+    <div>
+      <h2>Hello</h2>
+      <h4>This is {name}</h4>
+      <h4>Age {age}</h4>
+      <h4>Sex {sex}</h4>
+      <img src={pic} height={height} />
+        <button onClick={this.zoomPicIn.bind(this)}>Zoom In</button>
+        <button onClick={this.zoomPicOut.bind(this)}>Zoom Out</button>
+      </div>
+    );
+  }
+    zoomPicIn(){
+      this.setState({height: this.state.height + 20})
+    }
+    zoomPicOut(){
+      this.setState({height: this.state.height - 20})      
+    }
+}
+
+//props
+//state
+React.render(<Profile name="Suraj Patil" age="22" sex="M" pic="https://www.gstatic.com/images/branding/product/1x/google_cloud_search_512dp.png"/>, document.getElementById('app'));
